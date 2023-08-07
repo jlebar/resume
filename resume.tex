@@ -1,0 +1,124 @@
+\documentclass[12pt]{article}
+
+\pagestyle{empty}
+\usepackage[dvips,letterpaper,lmargin=0.9in,rmargin=0.9in,tmargin=0.9in,bmargin=0.9in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{url}
+\usepackage{fancyvrb}
+\usepackage{titlesec}
+\usepackage{verbatim}
+\usepackage{nth}
+\usepackage{textcomp}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{.3em plus0.1em minus0.1em}
+
+\makeatletter
+\DeclareRobustCommand{\Cpp}
+{\valign{\vfil\hbox{##}\vfil\cr
+   {C\kern-.05em}\cr
+   $\hbox{\fontsize{\sf@size}{0}\textbf{+\kern-0.05em+}}$\cr}%
+}
+\makeatother
+
+\makeatletter
+\DeclareRobustCommand{\Csharp}
+{\valign{\vfil\hbox{##}\vfil\cr
+   {C\kern .03em}\cr
+   $\hbox{\fontsize{\sf@size}{0}\textbf{\#}}$\cr}%
+}
+\makeatother
+
+\titlespacing{\paragraph}{0pt}{.5\baselineskip}{1em}
+\titlespacing{\section}{0pt}{.75em}{.2em}
+\titlespacing{\subsection}{0pt}{.5em}{.1em}
+
+\begin{document}
+\begin{minipage}{0.65\textwidth}
+\section*{Education}
+\textbf{Stanford University} B.S./M.S. Computer Science 2011
+
+\textbf{Concentrations} in AI (undergraduate), Systems (graduate)
+\end{minipage}
+%
+\hfill\begin{minipage}{0.30\textwidth}
+\vspace{-1.40em}
+\raggedleft
+\framebox[2.30in][l]{\parbox[t]{2.10in}{
+\raggedleft
+\textbf{Justin Lebar}\\
+\hfill justin.lebar@gmail.com \\
+\small
+\hfill \url{http://jlebar.com} \\
+\hfill \url{http://github.com/jlebar} \\ \vspace{1em}
+\textit{Updated Jan 2019}
+}}
+\end{minipage}
+
+\section*{Software Engineer at Google}
+\paragraph{2016--present} Tech lead (team of \textasciitilde{}10) and manager
+(since 2018, team of \textasciitilde{}5) of Google's GPU compilers and
+XLA:CPU/GPU teams.  We:
+
+\begin{itemize}
+\item Built the CPU and nVidia GPU backends for XLA, a compiler for ML.
+  XLA:GPU is median \textbf{1.5x} faster than TensorFlow on fp16 models, and in
+  particular gets state-of-the-art performance on Resnet50 without us writing
+  hand-tuned kernels.  See \url{https://bit.ly/2CS5NCC}.
+    
+  TensorFlow, PyTorch, JAX, and Julia all have backends for XLA.
+
+\item Added CUDA support in clang.  This was hard in part because there exists
+  no spec for the CUDA language, and nVidia's compiler leaks implementation
+  details into its behavior.  All of Google's CUDA code is compiled with
+  clang now.
+
+\item Added support for new nVidia GPUs in LLVM and fixed some deep bugs in
+  LLVM's handling of GPU code.  This required at times deep debugging into GPU
+  machine code, for which the only compiler is closed-source and for which
+  there exists no public ISA.
+\end{itemize}
+
+My personal technical focus has been on performance optimization.  See also my
+CppCon 2016 talk about GPUs and CUDA support in clang:
+\url{https://youtu.be/KHa-OSrZPGo}.
+
+\paragraph{2013--2016} Software Engineer on Census, a performance-monitoring
+and debugging tool.  My primary focus was performance of the library, which ran
+at immense scale.
+
+\paragraph{Promos} Level 6 (2017 Q1), L5 (2014 Q3), started at L4.
+
+\section*{Gecko Hacker at Mozilla}
+\textbf{2011--2013:} Full-time, working remotely from New York City\\
+\textbf{2009--2011:} Internships and part-time, working in Mountain View and
+remotely
+
+I contributed to many different areas of the Firefox, but I was most passionate
+about reducing Firefox's memory usage.  I was an official \textbf{reviewer of
+seven modules} and a de facto owner/reviewer of many other pieces of code,
+including Firefox's malloc implementation.
+
+\begin{comment}
+In the period between Jan.~1, 2012 and May~15, 2013, I was the \textbf{\nth{13}
+most-prolific author} and the \textbf{\nth{15} most-prolific reviewer} of
+commits in Mozilla's main source repository, out of \textasciitilde350 contributors
+with more than 10 commits in this period.  Only three people both wrote and
+reviewed more patches during this time.
+
+git log --no-merges --since=01-01-2012 --pretty="%ae %s" | sort | uniq | grep -iv 'back out\|backout\|backed out' | grep --only-matching '^[^ ]\+' | sort | uniq -c | sort -rg | awk '{print ++count "\t" $0}' | head -n30
+
+git log --since=01-01-2012 --pretty=%s | sort | uniq | grep -iv 'back out\|backout\|backed out' | grep --only-matching 'r=\w\+' | sort | uniq -c | sort -rg | awk '{print ++count "\t" $0}' | head -n30
+\end{comment}
+
+\section*{Etc.}
+\textbf{I'm good at} C, \Cpp, Python, bash, gdb, git, hg, and vim.
+
+\textbf{I love to} swing dance and teach.
+
+\textbf{I care deeply about} inclusivity.  I was involved with the \textit{Yes, at Google} project (\url{https://bloom.bg/2qhgDID}) and work on inclusivity in the swing dance scene.
+
+\textbf{My favorite musicians are} Glenn Gould and the David Grisman Quintet.
+
+\end{document}
