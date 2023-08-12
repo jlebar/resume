@@ -2,7 +2,7 @@
 
 \pagestyle{empty}
 \usepackage[dvips,letterpaper,lmargin=0.9in,rmargin=0.9in,tmargin=0.9in,bmargin=0.9in]{geometry}
-\usepackage[hidelinks]{hyperref}
+\usepackage{hyperref}
 \usepackage{url}
 \usepackage{fancyvrb}
 \usepackage{titlesec}
@@ -13,6 +13,13 @@
 \usepackage[T1]{fontenc}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{.3em plus0.1em minus0.1em}
+\usepackage{enumitem}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=blue,
+}
 
 \makeatletter
 \DeclareRobustCommand{\Cpp}
@@ -31,94 +38,126 @@
 \makeatother
 
 \titlespacing{\paragraph}{0pt}{.5\baselineskip}{1em}
-\titlespacing{\section}{0pt}{.75em}{.2em}
+\titlespacing{\section}{0pt}{.5em}{.05em}
 \titlespacing{\subsection}{0pt}{.5em}{.1em}
+\setlength{\parskip}{0.5em}
 
 \begin{document}
 \begin{minipage}{0.65\textwidth}
-\section*{Education}
-\textbf{Stanford University} B.S./M.S. Computer Science 2011
-
-\textbf{Concentrations} in AI (undergraduate), Systems (graduate)
+I'm a SWE and eng leader specializing in making GPUs run fast.  I've led and
+helped write most of Google's ML compilers stack, in clang, LLVM, and XLA.
+I'm looking for the equivalent of a Google L7 role.
 \end{minipage}
 %
 \hfill\begin{minipage}{0.30\textwidth}
 \vspace{-1.40em}
 \raggedleft
-\framebox[2.30in][l]{\parbox[t]{2.10in}{
+\framebox[2.00in][l]{\parbox[t]{1.80in}{
 \raggedleft
 \textbf{Justin Lebar}\\
-\hfill justin.lebar@gmail.com \\
-\small
-\hfill \url{http://jlebar.com} \\
-\hfill \url{http://github.com/jlebar} \\ \vspace{1em}
-\textit{Updated Jan 2019}
+\hfill justin.lebar@gmail.com \\ \vspace{0.5em}
+\textit{Updated 2023 Aug}
 }}
 \end{minipage}
 
-\section*{Software Engineer at Google}
-\paragraph{2016--present} Tech lead (team of \textasciitilde{}10) and manager
-(since 2018, team of \textasciitilde{}5) of Google's GPU compilers and
-XLA:CPU/GPU teams.  We:
+\section*{Timeline}
 
-\begin{itemize}
-\item Built the CPU and nVidia GPU backends for XLA, a compiler for ML.
-  XLA:GPU is median \textbf{1.5x} faster than TensorFlow on fp16 models, and in
-  particular gets state-of-the-art performance on Resnet50 without us writing
-  hand-tuned kernels.  See \url{https://bit.ly/2CS5NCC}.
-    
-  TensorFlow, PyTorch, JAX, and Julia all have backends for XLA.
+\begin{minipage}{7em} \textbf{2020--present} \end{minipage} Waymo tech lead and
+  manager focused on GPU infra and performance.  I have impact across Waymo,
+  ranging from strategic leadership to individual technical contributions.
 
-\item Added CUDA support in clang.  This was hard in part because there exists
-  no spec for the CUDA language, and nVidia's compiler leaks implementation
-  details into its behavior.  All of Google's CUDA code is compiled with
-  clang now.
-
-\item Added support for new nVidia GPUs in LLVM and fixed some deep bugs in
-  LLVM's handling of GPU code.  This required at times deep debugging into GPU
-  machine code, for which the only compiler is closed-source and for which
-  there exists no public ISA.
+\begin{itemize}[topsep=0em, itemsep=0pt, parsep=0.25em]
+\item I set Waymo's GPU software strategy, e.g.\ deciding which compilers we use
+  and which optimization opportunities (quantization, distillation, Triton,
+  etc.) we focus on.
+\item I've built a team of 5 formal and about 5 informal members.  We:
+  \begin{itemize}[topsep=0em, itemsep=0pt, parsep=0em]
+    \item own Waymo's LiDAR processing pipeline (written in CUDA),
+    \item build infra for programming in CUDA (has cool portability and safety features), and
+    \item build ML optimization infra (e.g.\ XLA and quantized-aware training).
+  \end{itemize}
+\item I'm involved in most ML model launches across the company, debugging
+  latency issues and often fixing issues in XLA.
+\item I'm the customer for the GPU part of Waymo's planned custom hardware.
+  For example I defined the GPU's programming model.
+\item I act as a tech lead and senior SWE for the Google XLA project.  I write
+  and review code for XLA, clang, and LLVM and help grow the SWEs and TLs on
+  the team.
+\item I'm a \Cpp\ expert; I teach a class at Waymo, and I'm one of the top 10
+  \Cpp\ readability reviewers by volume across all of Alphabet.
 \end{itemize}
 
-My personal technical focus has been on performance optimization.  See also my
-CppCon 2016 talk about GPUs and CUDA support in clang:
-\url{https://youtu.be/KHa-OSrZPGo}.
+\begin{minipage}{5.5em} \textbf{Fall 2019} \end{minipage}
+\href{https://buildyourfuture.withgoogle.com/programs/googleinresidence}{Taught}
+a semester of intro CS at Hampton University.
 
-\paragraph{2013--2016} Software Engineer on Census, a performance-monitoring
-and debugging tool.  My primary focus was performance of the library, which ran
-at immense scale.
+\begin{minipage}{5.5em} \textbf{2016--2019} \end{minipage}
+Google tech lead and manager for GPU compilers and XLA:CPU/GPU.
 
-\paragraph{Promos} Level 6 (2017 Q1), L5 (2014 Q3), started at L4.
+\begin{itemize}[topsep=0.25em, itemsep=0pt, partopsep=0pt]
+\item I was part of the team of two that added support for CUDA in clang and
+  made LLVM's PTX support usable.
 
-\section*{Gecko Hacker at Mozilla}
-\textbf{2011--2013:} Full-time, working remotely from New York City\\
-\textbf{2009--2011:} Internships and part-time, working in Mountain View and
-remotely
+\item Later I moved to working on XLA, where I led the XLA:CPU and XLA:GPU
+  projects as the tech lead and one of the managers. During this time we
+  transformed XLA from a toy into a product with real users.
+\end{itemize}
 
-I contributed to many different areas of the Firefox, but I was most passionate
-about reducing Firefox's memory usage.  I was an official \textbf{reviewer of
-seven modules} and a de facto owner/reviewer of many other pieces of code,
-including Firefox's malloc implementation.
+\begin{minipage}{5.5em} \textbf{2013--2016} \end{minipage}
+Google SWE on Census, a performance-monitoring and debugging tool.
 
-\begin{comment}
-In the period between Jan.~1, 2012 and May~15, 2013, I was the \textbf{\nth{13}
-most-prolific author} and the \textbf{\nth{15} most-prolific reviewer} of
-commits in Mozilla's main source repository, out of \textasciitilde350 contributors
-with more than 10 commits in this period.  Only three people both wrote and
-reviewed more patches during this time.
+\begin{minipage}{5.5em} \textbf{2011--2013} \end{minipage}
+Gecko hacker at Mozilla.  I worked on many aspects of the platform --- I was an
+official reviewer of seven modules.  I specialized in optimizing the browser's
+memory usage.
 
-git log --no-merges --since=01-01-2012 --pretty="%ae %s" | sort | uniq | grep -iv 'back out\|backout\|backed out' | grep --only-matching '^[^ ]\+' | sort | uniq -c | sort -rg | awk '{print ++count "\t" $0}' | head -n30
-
-git log --since=01-01-2012 --pretty=%s | sort | uniq | grep -iv 'back out\|backout\|backed out' | grep --only-matching 'r=\w\+' | sort | uniq -c | sort -rg | awk '{print ++count "\t" $0}' | head -n30
-\end{comment}
+\begin{minipage}{5.5em} \textbf{2006--2011} \end{minipage}
+Stanford University, BS/MS in Computer Science.
 
 \section*{Etc.}
-\textbf{I'm good at} C, \Cpp, Python, bash, gdb, git, hg, and vim.
+\textbf{I'm good at} \Cpp, CUDA, LLVM, Python, bash, gdb, git, hg, and vim.
 
 \textbf{I love to} swing dance and teach.
 
-\textbf{I care deeply about} inclusivity.  I was involved with the \textit{Yes, at Google} project (\url{https://bloom.bg/2qhgDID}) and work on inclusivity in the swing dance scene.
+\textbf{I care deeply about} inclusivity.  I was involved with the
+\href{https://bloom.bg/2qhgDID}{\textit{Yes, at Google}} project and work on
+inclusivity in the swing dance scene.
 
-\textbf{My favorite musicians are} Glenn Gould and the David Grisman Quintet.
+\section*{Work Samples}
+
+A large fraction of my work these days is helping others (writing and reviewing
+designs, reviewing code, etc.), most of which isn't public.  Here's what I can
+show:
+
+\begin{itemize}
+  \item My \href{https://youtu.be/KHa-OSrZPGo}{CppCon 2016 talk} about GPUs and
+    CUDA support in clang
+  \item I have some old stuff on my \href{https://jlebar.com}{blog}.  The post
+    on rvalue references is a good example of my approach to teaching \Cpp.
+  \item Recent \href{https://reviews.llvm.org/D149893}{patch} to rewrite an
+    LLVM pass.  This helps with int8 kernels generated by XLA.
+  \item
+    \href{https://github.com/tensorflow/tensorflow/commit/9cfee581d2ce958d45f798d8a7be7f7e6dde1d41}{Patch}
+    adding support for ahead-of-time cudnn/cublas autotuning.  This is a big
+    startup-time win for Waymo, plus it makes us more deterministic.  There's a
+    whole infrastructure at Waymo to generate these AoT autotuning choices,
+    which I designed but didn't implement myself.
+  \item
+    \href{https://github.com/tensorflow/tensorflow/commit/852afbdcc087ba514ad285c658ff7b2a611d8e67}{``Fun''}
+    optimization to XLA:GPU compile time.  This was part of a long chain of
+    compile-time optimizations.
+\end{itemize}
+
+All my commits to XLA, clang, and LLVM are open-source; Google doesn't maintain
+an internal branch.  My github \href{https://github.com/jlebar}{activity
+tracker} isn't showing most of my contributions for some reason, so the best I
+have to offer is running \texttt{git log} over the repos:
+\begin{verbatim}
+  $ git clone https://github.com/tensorflow/tensorflow.git
+  $ git -C tensorflow --author lebar
+
+  $ git clone https://github.com/llvm/llvm-project.git
+  $ git -C llvm-project --author lebar
+\end{verbatim}
 
 \end{document}
